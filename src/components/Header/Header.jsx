@@ -1,6 +1,7 @@
 import { useLocation } from 'react-router-dom';
 import LinkButton from '../../common/Button';
 import './Header.css';
+import { Link } from 'react-router-dom';
 
 export default function Header() {
   const location = useLocation();
@@ -9,9 +10,9 @@ export default function Header() {
 
   return (
     <header className={isHome ? '' : 'header_bg'}>
-      <div>
+      <Link to="/">
         <img src="/img/logo.png" alt="Logo AluraFlix" />
-      </div>
+      </Link>
       <div>
         <LinkButton name="HOME" focused={isHome} />
         <LinkButton name="NUEVO VIDEO" focused={isNew} />
