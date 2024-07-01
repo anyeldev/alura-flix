@@ -38,6 +38,7 @@
   background-color: transparent;
   border: none;
   color: var(--white);
+  cursor: pointer;
   font-size: 16px;
   font-weight: 700;
 }
