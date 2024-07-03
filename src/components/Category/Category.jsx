@@ -1,23 +1,18 @@
-import './Category.css';
-import './Modal.css';
+import { useState } from 'react';
 import Title from '../../common/Title';
 import Card from '../Card/Card';
-
+import Form from '../Form/Form';
 import img1 from '/img/image1.png';
 import img2 from '/img/image2.png';
 import img3 from '/img/image3.png';
-import { useState } from 'react';
-import Form from '../Form/Form';
+import './Category.css';
+import './Modal.css';
 
 export default function Category() {
   const [showModal, setShowModal] = useState(false);
 
-  const handleOpenModal = () => {
-    setShowModal(true);
-  };
-
-  const handleCloseModal = () => {
-    setShowModal(false);
+  const toggleModal = () => {
+    setShowModal((isOpen) => !isOpen);
   };
 
   return (
@@ -25,9 +20,9 @@ export default function Category() {
       <section>
         <Title name="FRONT END" bgTitle="#6bd1ff" />
         <div className="card_content">
-          <Card color="#6bd1ff" image={img1} edit={handleOpenModal} />
-          <Card color="#6bd1ff" image={img2} edit={handleOpenModal} />
-          <Card color="#6bd1ff" image={img3} edit={handleOpenModal} />
+          <Card color="#6bd1ff" image={img1} edit={toggleModal} />
+          <Card color="#6bd1ff" image={img2} edit={toggleModal} />
+          <Card color="#6bd1ff" image={img3} edit={toggleModal} />
         </div>
       </section>
 
@@ -53,7 +48,7 @@ export default function Category() {
         <div className="modal">
           <div className="modal_content">
             <Form titleForm="EDITAR CARD: " />
-            <button onClick={handleCloseModal} className="close_button">
+            <button onClick={toggleModal} className="close_button">
               <img src="/icon/close.svg" alt="Close Icon" />
             </button>
           </div>
