@@ -46,7 +46,7 @@ export default function Form({ titleForm }) {
             <textarea
               id="textArea"
               placeholder="¿De qué se trata este vídeo?"
-              rows="10"
+              rows="5"
               required
             ></textarea>
           </div>

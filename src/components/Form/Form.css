@@ -17,7 +17,8 @@
 }
 
 .form_section {
-  margin: 0 134px;
+  width: 80%;
+  margin: auto;
 }
 
 .title_form {
@@ -42,7 +43,7 @@
 }
 
 .form_section .input {
-  flex: 1 calc(50% - 20px);
+  flex: 1 1 calc(50% - 20px);
 }
 
 .input_select {
@@ -50,6 +51,7 @@
   flex-direction: column;
   font-size: 20px;
   font-family: var(--font-2);
+  width: 100%;
 }
 
 .input_select label {

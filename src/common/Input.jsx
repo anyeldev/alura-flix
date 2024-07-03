@@ -5,6 +5,7 @@ const InputBox = styled.div`
   font-size: 20px;
   font-weight: 700;
   font-family: var(--font-2);
+  width: 100%;
 
   label {
     display: block;

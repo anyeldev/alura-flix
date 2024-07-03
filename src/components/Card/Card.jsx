@@ -1,6 +1,6 @@
 import './Card.css';
 
-export default function Card({ color, image }) {
+export default function Card({ color, image, edit }) {
   const border = { '--border-color': color };
   const shadow = { '--box-shadow-color': color };
 
@@ -15,7 +15,7 @@ export default function Card({ color, image }) {
             <img src="/icon/trash.svg" alt="Trash Icon" />
             <span>BORRAR</span>
           </button>
-          <button className="card_button">
+          <button className="card_button" onClick={edit}>
             <img src="/icon/edit.svg" alt="Edit Icon" />
             <span>EDITAR</span>
           </button>
