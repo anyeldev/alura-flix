@@ -1,0 +1,76 @@
+{
+  "videos": [
+    {
+      "id": 1,
+      "title": "Cuándo usar let, var y const? #AluraMás",
+      "link": "https://www.youtube.com/embed/PztCEdIJITY",
+      "image": "https://i.ytimg.com/vi/PztCEdIJITY/hq720.jpg",
+      "description": "Cuándo usar let, var y const",
+      "category": "frontend"
+    },
+    {
+      "id": 2,
+      "title": "Cuándo usar let, var y const? #AluraMás",
+      "link": "https://www.youtube.com/embed/PztCEdIJITY",
+      "image": "https://i.ytimg.com/vi/PztCEdIJITY/hq720.jpg",
+      "description": "Cuándo usar let, var y const",
+      "category": "frontend"
+    },
+    {
+      "id": 3,
+      "title": "Cuándo usar let, var y const? #AluraMás",
+      "link": "https://www.youtube.com/embed/PztCEdIJITY",
+      "image": "https://i.ytimg.com/vi/PztCEdIJITY/hq720.jpg",
+      "description": "Cuándo usar let, var y const",
+      "category": "frontend"
+    },
+    {
+      "id": 4,
+      "title": "Spring Framework. ¿Qué es ? #AluraMás",
+      "link": "https://www.youtube.com/watch?v=t-iqt1b2qqk",
+      "image": "https://i.ytimg.com/vi/t-iqt1b2qqk/hq720.jpg",
+      "description": "Spring Framework",
+      "category": "backend"
+    },
+    {
+      "id": 5,
+      "title": "Spring Framework. ¿Qué es ? #AluraMás",
+      "link": "https://www.youtube.com/watch?v=t-iqt1b2qqk",
+      "image": "https://i.ytimg.com/vi/t-iqt1b2qqk/hq720.jpg",
+      "description": "Spring Framework",
+      "category": "backend"
+    },
+    {
+      "id": 6,
+      "title": "Spring Framework. ¿Qué es ? #AluraMás",
+      "link": "https://www.youtube.com/watch?v=t-iqt1b2qqk",
+      "image": "https://i.ytimg.com/vi/t-iqt1b2qqk/hq720.jpg",
+      "description": "Spring Framework",
+      "category": "backend"
+    },
+    {
+      "id": 7,
+      "title": "¿Qué son las Soft Skills?",
+      "link": "https://www.youtube.com/watch?v=vhwspfvI52k",
+      "image": "https://i.ytimg.com/vi/vhwspfvI52k/hq720.jpg",
+      "description": "Las Soft Skills",
+      "category": "innovacion"
+    },
+    {
+      "id": 8,
+      "title": "¿Qué son las Soft Skills?",
+      "link": "https://www.youtube.com/watch?v=vhwspfvI52k",
+      "image": "https://i.ytimg.com/vi/vhwspfvI52k/hq720.jpg",
+      "description": "Las Soft Skills",
+      "category": "innovacion"
+    },
+    {
+      "id": 9,
+      "title": "¿Qué son las Soft Skills?",
+      "link": "https://www.youtube.com/watch?v=vhwspfvI52k",
+      "image": "https://i.ytimg.com/vi/vhwspfvI52k/hq720.jpg",
+      "description": "Las Soft Skills",
+      "category": "innovacion"
+    }
+  ]
+}

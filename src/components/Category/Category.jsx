@@ -1,46 +1,65 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Title from '../../common/Title';
 import Card from '../Card/Card';
 import Form from '../Form/Form';
-import img1 from '/img/image1.png';
-import img2 from '/img/image2.png';
-import img3 from '/img/image3.png';
 import './Category.css';
 import './Modal.css';
 
 export default function Category() {
+  const [videos, setVideos] = useState([]);
   const [showModal, setShowModal] = useState(false);
+
+  const color = ['#6bd1ff', '#00c86f', '#ffba05'];
 
   const toggleModal = () => {
     setShowModal((isOpen) => !isOpen);
   };
 
+  useEffect(() => {
+    const fetchVideos = async () => {
+      try {
+        const response = await fetch('http://localhost:3001/videos');
+        const data = await response.json();
+        setVideos(data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchVideos();
+  }, []);
+
   return (
     <>
       <section>
-        <Title name="FRONT END" bgTitle="#6bd1ff" />
+        <Title name="FRONT END" bgTitle={color[0]} />
         <div className="card_content">
-          <Card color="#6bd1ff" image={img1} edit={toggleModal} />
-          <Card color="#6bd1ff" image={img2} edit={toggleModal} />
-          <Card color="#6bd1ff" image={img3} edit={toggleModal} />
+          {videos
+            .filter((video) => video.category === 'frontend')
+            .map((video) => (
+              <Card key={video.id} {...video} color={color[0]} edit={toggleModal} />
+            ))}
         </div>
       </section>
 
       <section>
-        <Title name="BACK END" bgTitle="#00c86f" />
+        <Title name="BACK END" bgTitle={color[1]} />
         <div className="card_content">
-          <Card color="#00c86f" image={img1} />
-          <Card color="#00c86f" image={img2} />
-          <Card color="#00c86f" image={img3} />
+          {videos
+            .filter((video) => video.category === 'backend')
+            .map((video) => (
+              <Card key={video.id} {...video} color={color[1]} edit={toggleModal} />
+            ))}
         </div>
       </section>
 
       <section>
-        <Title name="INNOVACIÓN Y GESTIÓN" bgTitle="#ffba05" />
+        <Title name="INNOVACIÓN Y GESTIÓN" bgTitle={color[2]} />
         <div className="card_content">
-          <Card color="#ffba05" image={img1} />
-          <Card color="#ffba05" image={img2} />
-          <Card color="#ffba05" image={img3} />
+          {videos
+            .filter((video) => video.category === 'innovacion')
+            .map((video) => (
+              <Card key={video.id} {...video} color={color[2]} edit={toggleModal} />
+            ))}
         </div>
       </section>
 
