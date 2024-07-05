@@ -28,40 +28,44 @@ export default function Category() {
     fetchVideos();
   }, []);
 
+  const deleteVideo = async (id) => {
+    try {
+      await fetch(`http://localhost:3001/videos/${id}`, {
+        method: 'DELETE'
+      });
+      setVideos((video) => video.filter((video) => video.id !== id));
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const videoFilter = (category, color) => {
+    const filteredVideos = videos.filter((video) => video.category === category);
+    if (filteredVideos.length === 0) return null;
+
+    return (
+      <section>
+        <Title name={category.toUpperCase()} bgTitle={color} />
+        <div className="card_content">
+          {filteredVideos.map((video) => (
+            <Card
+              key={video.id}
+              {...video}
+              color={color}
+              edit={toggleModal}
+              deleteVideo={() => deleteVideo(video.id)}
+            />
+          ))}
+        </div>
+      </section>
+    );
+  };
+
   return (
     <>
-      <section>
-        <Title name="FRONT END" bgTitle={color[0]} />
-        <div className="card_content">
-          {videos
-            .filter((video) => video.category === 'frontend')
-            .map((video) => (
-              <Card key={video.id} {...video} color={color[0]} edit={toggleModal} />
-            ))}
-        </div>
-      </section>
-
-      <section>
-        <Title name="BACK END" bgTitle={color[1]} />
-        <div className="card_content">
-          {videos
-            .filter((video) => video.category === 'backend')
-            .map((video) => (
-              <Card key={video.id} {...video} color={color[1]} edit={toggleModal} />
-            ))}
-        </div>
-      </section>
-
-      <section>
-        <Title name="INNOVACIÓN Y GESTIÓN" bgTitle={color[2]} />
-        <div className="card_content">
-          {videos
-            .filter((video) => video.category === 'innovacion')
-            .map((video) => (
-              <Card key={video.id} {...video} color={color[2]} edit={toggleModal} />
-            ))}
-        </div>
-      </section>
+      {videoFilter('frontend', color[0])}
+      {videoFilter('backend', color[1])}
+      {videoFilter('innovacion', color[2])}
 
       {showModal && (
         <div className="modal">
