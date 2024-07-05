@@ -5,10 +5,10 @@ import './Form.css';
 export default function Form({ titleForm, onSubmit }) {
   const [formData, setFormData] = useState({
     title: '',
-    category: '',
+    link: '',
     image: '',
-    video: '',
-    description: ''
+    description: '',
+    category: ''
   });
 
   const handleChange = (e) => {
@@ -25,10 +25,10 @@ export default function Form({ titleForm, onSubmit }) {
   function Clear() {
     setFormData({
       title: '',
-      category: '',
+      link: '',
       image: '',
-      video: '',
-      description: ''
+      description: '',
+      category: ''
     });
   }
 

@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { VideoProvider } from './context/Video';
 import Home from './pages/Home';
 import New from './pages/New';
 import Header from './components/Header/Header';
@@ -9,11 +10,13 @@ export default function AppRoutes() {
     <>
       <BrowserRouter>
         <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/nuevo" element={<New />} />
-        </Routes>
-        <Footer />
+        <VideoProvider>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/nuevo" element={<New />} />
+          </Routes>
+          <Footer />
+        </VideoProvider>
       </BrowserRouter>
     </>
   );

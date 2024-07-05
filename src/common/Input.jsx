@@ -30,11 +30,19 @@ const InputBox = styled.div`
   }
 `;
 
-export default function Input({ titleInput, type, placeholder, className }) {
+export default function Input({ titleInput, type, placeholder, className, name, value, onChange }) {
   return (
     <InputBox className={className}>
-      <label htmlFor="input">{titleInput}</label>
-      <input type={type} id="input" placeholder={placeholder} required />
+      <label htmlFor={name}>{titleInput}</label>
+      <input
+        type={type}
+        id={name}
+        placeholder={placeholder}
+        name={name}
+        value={value}
+        onChange={onChange}
+        required
+      />
     </InputBox>
   );
 }

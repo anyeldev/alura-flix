@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { useVideos } from '../../context/Video';
 import Title from '../../common/Title';
 import Card from '../Card/Card';
 import Form from '../Form/Form';
@@ -6,37 +7,13 @@ import './Category.css';
 import './Modal.css';
 
 export default function Category() {
-  const [videos, setVideos] = useState([]);
+  const { videos, addVideo, deleteVideo } = useVideos();
   const [showModal, setShowModal] = useState(false);
 
   const color = ['#6bd1ff', '#00c86f', '#ffba05'];
 
   const toggleModal = () => {
     setShowModal((isOpen) => !isOpen);
-  };
-
-  useEffect(() => {
-    const fetchVideos = async () => {
-      try {
-        const response = await fetch('http://localhost:3001/videos');
-        const data = await response.json();
-        setVideos(data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    fetchVideos();
-  }, []);
-
-  const deleteVideo = async (id) => {
-    try {
-      await fetch(`http://localhost:3001/videos/${id}`, {
-        method: 'DELETE'
-      });
-      setVideos((video) => video.filter((video) => video.id !== id));
-    } catch (error) {
-      console.error(error);
-    }
   };
 
   const videoFilter = (category, color) => {
@@ -70,7 +47,7 @@ export default function Category() {
       {showModal && (
         <div className="modal">
           <div className="modal_content">
-            <Form titleForm="EDITAR CARD: " />
+            <Form titleForm="EDITAR CARD: " onSubmit={addVideo} />
             <button onClick={toggleModal} className="close_button">
               <img src="/icon/close.svg" alt="Close Icon" />
             </button>
