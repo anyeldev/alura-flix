@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Input from '../../common/Input';
 import './Form.css';
 
-export default function Form({ titleForm, onSubmit }) {
+export default function Form({ titleForm, onSubmit, initialValue }) {
   const [formData, setFormData] = useState({
     title: '',
     link: '',
@@ -10,6 +10,13 @@ export default function Form({ titleForm, onSubmit }) {
     description: '',
     category: ''
   });
+
+  // update form when initialValue change
+  useEffect(() => {
+    if (initialValue) {
+      setFormData(initialValue);
+    }
+  }, [initialValue]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -75,8 +82,8 @@ export default function Form({ titleForm, onSubmit }) {
             type="url"
             placeholder="Ingrese el enlace del vídeo"
             className="input"
-            name="video"
-            value={formData.video}
+            name="link"
+            value={formData.link}
             onChange={handleChange}
           />
 
@@ -104,10 +111,8 @@ export default function Form({ titleForm, onSubmit }) {
 
 function Button({ title, type, onClick }) {
   return (
-    <>
-      <button className="button" type={type} onClick={onClick}>
-        {title}
-      </button>
-    </>
+    <button className="button" type={type} onClick={onClick}>
+      {title}
+    </button>
   );
 }

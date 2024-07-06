@@ -47,8 +47,24 @@ export function VideoProvider({ children }) {
     }
   };
 
+  const updateVideo = async (update) => {
+    try {
+      const response = await fetch(`http://localhost:3001/videos/${update.id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(update)
+      });
+      const data = await response.json();
+      setVideos((video) => video.map((vid) => (vid.id === data.id ? data : vid)));
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
-    <VideoContext.Provider value={{ videos, addVideo, deleteVideo }}>
+    <VideoContext.Provider value={{ videos, addVideo, deleteVideo, updateVideo }}>
       {children}
     </VideoContext.Provider>
   );
