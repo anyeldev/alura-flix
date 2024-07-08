@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
+import { useToast } from '@chakra-ui/react';
 import Input from '../../common/Input';
 import './Form.css';
 
 export default function Form({ titleForm, onSubmit, initialValue }) {
+  const toast = useToast();
   const [formData, setFormData] = useState({
     title: '',
     link: '',
@@ -25,8 +27,32 @@ export default function Form({ titleForm, onSubmit, initialValue }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit(formData);
-    Clear();
+
+    if (formData.title && formData.link && formData.image && formData.description && formData.category) {
+      const createToast = new Promise((resolve) => {
+        setTimeout(() => resolve(200), 2000);
+      });
+
+      createToast.then(() => {
+        onSubmit(formData);
+        Clear();
+      });
+
+      toast.promise(createToast, {
+        loading: { title: 'Guardando', description: 'Por favor espere...', position: 'top-right' },
+        success: { title: 'Guardado', description: 'El video ha sido guardado exitosamente.', position: 'top-right', duration: 2500 },
+        error: { title: 'Error', description: 'Hubo un problema al guardar el video.', position: 'top-right' }
+      });
+    } else {
+      toast({
+        title: 'Formulario incompleto',
+        description: 'Por favor complete todos los campos.',
+        status: 'error',
+        duration: 3000,
+        isClosable: true,
+        position: 'top-right'
+      });
+    }
   };
 
   function Clear() {
@@ -101,7 +127,7 @@ export default function Form({ titleForm, onSubmit, initialValue }) {
           </div>
         </div>
         <div className="group">
-          <Button type="submit" title="GUARDAR" className="button" />
+          <Button type="submit" title="GUARDAR" className="button" required />
           <Button type="button" title="LIMPIAR" onClick={Clear} />
         </div>
       </form>
