@@ -5,7 +5,7 @@ import Home from './pages/Home';
 import New from './pages/New';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
-import theme from './theme';
+import theme from './scripts/themeChakraUI';
 
 export default function AppRoutes() {
   return (

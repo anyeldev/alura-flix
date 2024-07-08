@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useToast } from '@chakra-ui/react';
+import { convertLinkToEmbed } from '../../scripts/linkEmbed';
 import Input from '../../common/Input';
 import './Form.css';
 
@@ -29,12 +30,13 @@ export default function Form({ titleForm, onSubmit, initialValue }) {
     e.preventDefault();
 
     if (formData.title && formData.link && formData.image && formData.description && formData.category) {
+      const linkEmbed = convertLinkToEmbed(formData.link);
       const createToast = new Promise((resolve) => {
         setTimeout(() => resolve(200), 2000);
       });
 
       createToast.then(() => {
-        onSubmit(formData);
+        onSubmit({...formData, link: linkEmbed});
         Clear();
       });
 
