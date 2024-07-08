@@ -14,6 +14,18 @@ const Content = styled.div`
     font-weight: 900;
     text-align: center;
   }
+
+  @media (max-width: 1024px) {
+    margin: 93px auto 40px;
+  }
+
+  @media (max-width: 430px) {
+    width: 286px;
+
+    h2 {
+      font-size: 24px;
+    }
+  }
 `;
 
 export default function Title({ name, bgTitle }) {

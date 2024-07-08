@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <>
       <Banner>Hola Home</Banner>
-      <main style={{ padding: '0 45px' }}>
+      <main>
         <Category />
       </main>
     </>

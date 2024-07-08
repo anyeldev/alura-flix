@@ -16,6 +16,7 @@
 .modal_content {
   background-color: var(--blue-dark);
   border-radius: 8px;
+  border: 3px solid var(--blue-light);
   padding-top: 60px;
   position: relative;
   width: 50%;
@@ -38,4 +39,27 @@
 
 .modal_video .close_button {
   right: 100px;
+}
+
+@media (max-width: 1024px) {
+  .modal_content {
+    width: 80%;
+    height: 85%;
+    overflow-y: auto;
+  }
+
+  .modal_content::-webkit-scrollbar {
+    height: 20px;
+  }
+  .modal_content::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: #1b2838;
+  }
+
+  .modal_content::-webkit-scrollbar-thumb {
+    background-color: var(--blue);
+    border-radius: 10px;
+    background-clip: content-box;
+    border: 3px solid transparent;
+  }
 }

@@ -20,12 +20,6 @@ const StyleLink = styled(Link).attrs(() => ({
   text-decoration: none;
   width: 180px;
   margin-left: 25px;
-
-  /* &:hover {
-    background-color: ${(props) => (props.$focused ? 'darkblue' : 'lightgrey')};
-    border-color: ${(props) => (props.$focused ? 'orange' : 'grey')};
-    color: ${(props) => (props.$focused ? 'lightgrey' : 'black')};
-  } */
 `;
 
 export default function LinkButton({ name, focused }) {

@@ -118,3 +118,25 @@
   background-color: var(--blue);
   border-color: var(--blue);
 }
+
+@media (max-width: 700px) {
+  .title_container {
+    padding-top: 60px;
+  }
+  .title_container h1 {
+    font-size: 40px;
+  }
+
+  .form_container {
+    flex-direction: column;
+  }
+
+  .form_section {
+    margin-bottom: 110px;
+  }
+
+  .group button {
+    width: 100%;
+    margin: 10px 0;
+  }
+}

@@ -15,3 +15,14 @@ header {
 .header_bg {
   background-color: var(--dark);
 }
+
+@media (max-width: 700px) {
+  .header_button {
+    display: none;
+  }
+  header {
+    justify-content: center;
+    position: initial;
+    height: 80px;
+  }
+}

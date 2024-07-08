@@ -28,3 +28,37 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+main {
+  padding: 0 45px;
+}
+
+@media (max-width: 1024px) {
+  .banner {
+    width: 100%;
+  }
+
+  .banner img {
+    width: 460px;
+    margin-left: 20px;
+  }
+
+  .card_content {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+  .modal {
+    width: 70%;
+  }
+}
+
+@media (max-width: 700px) {
+  main {
+    padding: 0 15px 70px;
+  }
+
+  .banner {
+    display: none;
+  }
+}

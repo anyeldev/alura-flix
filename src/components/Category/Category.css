@@ -5,3 +5,37 @@
   gap: 30px;
   margin-bottom: 93px;
 }
+
+@media (max-width: 1024px) {
+  .card_content {
+    flex-wrap: nowrap;
+    justify-content: start;
+    overflow-x: auto;
+    padding-bottom: 20px;
+  }
+
+  .card_content::-webkit-scrollbar {
+    height: 20px;
+  }
+  .card_content::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: #1b2838;
+  }
+
+  .card_content::-webkit-scrollbar-thumb {
+    background-color: var(--blue);
+    border-radius: 10px;
+    background-clip: content-box;
+    border: 5px solid transparent;
+  }
+
+  .card_container {
+    min-width: 430px;
+  }
+}
+
+@media (max-width: 700px) {
+  .card_container {
+    min-width: 370px;
+  }
+}
