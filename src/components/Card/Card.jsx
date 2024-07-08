@@ -1,23 +1,16 @@
 import './Card.css';
 
-export default function Card({ color, image, edit, deleteVideo }) {
+export default function Card({ color, image, edit, deleteVideo, handleShowVideo }) {
   const border = { '--border-color': color };
   const shadow = { '--box-shadow-color': color };
 
   return (
     <div className="card_container" style={border}>
-      <div className="card_image" style={shadow}>
+      <div className="card_image" style={shadow} onClick={handleShowVideo}>
+        <div className="play_icon">
+          <img src="/icon/play.svg" alt="Play Icon" />
+        </div>
         <img src={image} alt="Video Image" />
-        {/* <iframe
-          width="100%"
-          height="262px"
-          src={link}
-          title="YouTube video player"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerPolicy="strict-origin-when-cross-origin"
-          allowfullscreen
-        ></iframe> */}
       </div>
       <div>
         <div className="group_button" style={shadow}>

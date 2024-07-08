@@ -48,3 +48,20 @@
   display: flex;
   gap: 20px;
 }
+
+.play_icon {
+  display: none;
+  left: 50%;
+  top: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s ease-in-out;
+}
+
+.card_image:hover .play_icon {
+  display: block;
+}
+
+.card_image:hover {
+  cursor: pointer;
+}

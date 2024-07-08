@@ -1,5 +1,5 @@
 .modal {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.85);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -29,4 +29,13 @@
   position: absolute;
   right: 10px;
   top: 10px;
+}
+
+.modal_video .modal_content {
+  padding-top: 0;
+  height: auto;
+}
+
+.modal_video .close_button {
+  right: 100px;
 }

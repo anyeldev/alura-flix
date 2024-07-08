@@ -11,6 +11,9 @@ export default function Category() {
   const [showModal, setShowModal] = useState(false);
   const [selectVideo, setSelectVideo] = useState(null);
 
+  const [videoLink, setVideoLink] = useState('');
+  const [showVideoModal, setShowVideoModal] = useState(false);
+
   const color = ['#6bd1ff', '#00c86f', '#ffba05'];
 
   const toggleModal = () => {
@@ -34,6 +37,11 @@ export default function Category() {
     setSelectVideo(null);
   };
 
+  const handleShowVideo = (link) => {
+    setVideoLink(link);
+    setShowVideoModal(true);
+  };
+
   const videoFilter = (category, color) => {
     const filteredVideos = videos.filter((video) => video.category === category);
     if (filteredVideos.length === 0) return null;
@@ -49,6 +57,7 @@ export default function Category() {
               color={color}
               edit={() => handleEdit(video)}
               deleteVideo={() => deleteVideo(video.id)}
+              handleShowVideo={() => handleShowVideo(video.link)}
             />
           ))}
         </div>
@@ -73,6 +82,22 @@ export default function Category() {
             <button onClick={toggleModal} className="close_button">
               <img src="/icon/close.svg" alt="Close Icon" />
             </button>
+          </div>
+        </div>
+      )}
+
+      {showVideoModal && (
+        <div className="modal modal_video" onClick={() => setShowVideoModal(false)}>
+          <div className="modal_content">
+            <iframe
+              width="100%"
+              height="415"
+              src={videoLink}
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
           </div>
         </div>
       )}
